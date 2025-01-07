@@ -1,21 +1,17 @@
 function censor(sentence) {
-    function asterics(n){
-        
-    }
-  let array=sentence.split(' ');
-  for(let i in array){
-    if(array[i]==='pancakes' || array[i]==='flapjacks' || array[i]==='slapjacks'||array[i]==='hotcakes'){
-      let wordLength=array[i].length
-       array[i]='*'.repeat(wordLength)}
-      if( array[i]==='waffles'|| array[i]==='crepes'||array[i]==='blintzes'){
-        array[i]=`**${array[i]}**`
-    }
-    if(array[i]==='syrup'||array[i]==='honey'|| array[i]==='jam'|| array[i]==='butter'||array[i]==='chocolate'||array[i]==='margarine'){
-            //   array[i]=`**${array[i]}**`
-                  let worldLength=array[i].length
-                  array[i]='*'.repeat(worldLength)
+    let array = sentence.split(' ');
+    for (let i in array) {
+        let word = array[i];
+        let lowerWord = word.toLowerCase(); // Convert to lowercase for comparison
 
+        if (lowerWord === 'pancakes' || lowerWord === 'flapjacks' || lowerWord === 'slapjacks' || lowerWord === 'hotcakes') {
+            array[i] = '*'.repeat(word.length); // Replace with asterisks
+        } else if (lowerWord === 'waffles' || lowerWord === 'crepes' || lowerWord === 'blintzes') {
+            array[i] = `**${word}**`; // Add double asterisks
+        } else if (lowerWord === 'syrup' || lowerWord === 'honey' || lowerWord === 'jam' || lowerWord === 'butter' || lowerWord ==='chocolate' || lowerWord === 'margarine') {
+          array[i] = `**${word}**`;
+        }
     }
-  }
-  return array.join(' ')
+  console.log(array.join(' '))
+    return array.join(' ');
 }
